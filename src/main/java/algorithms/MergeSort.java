@@ -2,9 +2,11 @@ package algorithms;
 
 public class MergeSort {
     public static void mergeSort(int[] array) {
+        if (array == null || array.length <= 1) return;
         int[] temp = new int[array.length];
         mergeSort(array, temp, 0, array.length - 1);
     }
+
 
     private static void mergeSort(int[] array, int[] temp, int left, int right) {
         if (right - left <= 16) { // small array → insertion sort
