@@ -1,5 +1,6 @@
-package algorithms;
+package org.example;
 
+import algorithms.MergeSort;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
