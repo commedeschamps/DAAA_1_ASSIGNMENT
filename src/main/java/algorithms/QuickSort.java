@@ -7,8 +7,10 @@ public class QuickSort {
     private static final int CUTOFF = 16;
 
     public static void quickSort(int[] a) {
+        if (a == null || a.length <= 1) return;
         quickSort(a, 0, a.length - 1, null);
     }
+
 
     public static void quickSort(int[] a, Metrics metrics) {
         quickSort(a, 0, a.length - 1, metrics);
@@ -58,7 +60,9 @@ public class QuickSort {
         for (int i = left + 1; i <= right; i++) {
             int key = a[i];
             int j = i - 1;
-            while (j >= left && (metrics == null ? a[j] > key : (++metrics.comparisons >= 0 && a[j] > key))) {
+            while (j >= left) {
+                if (metrics != null) metrics.comp();
+                if (!(a[j] > key)) break;
                 a[j + 1] = a[j];
                 j--;
             }
